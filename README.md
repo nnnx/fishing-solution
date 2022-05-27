@@ -12,3 +12,8 @@ $ docker-compose up -d
 ```
 $ docker-compose exec app composer install
 ```
+
+### Apply DB migrations
+```
+$ docker-compose exec app php yii migrate --interactive=0
+```
