@@ -11,6 +11,7 @@ services:
       - 'POD_NAME=phpfpm'
     volumes:
       - ./Dockerfiles/app/php/php-dev.ini:/usr/local/etc/php/php.ini
+      - ./:/app
     depends_on:
       - postgresql
   nginx:
