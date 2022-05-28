@@ -23,4 +23,10 @@ $this->title = 'Результаты аномалий: ' . $searchModel::caseNam
     'dataProvider' => $dataProvider,
     'columns' => $searchModel->gridColumns(),
     'summary' => false,
+    'tableOptions' => [
+        'class' => 'table table-bordered'
+    ],
+    'rowOptions' => function ($model) {
+        return ['class' => 'tr-cluster tr-cluster-' . $model->cluster_nr];
+    },
 ]); ?>

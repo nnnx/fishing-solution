@@ -128,4 +128,16 @@ class AnomalyFishSearch extends AnomalyFish
     {
         return $this->chartData;
     }
+
+    public function getChartFishTopDiff()
+    {
+        return AnomalyFish::find()
+            ->select([
+                'round(avg(diff_db1_db2)) as value',
+                'fish_name as category',
+            ])
+            ->groupBy('fish_name')
+            ->asArray()
+            ->all();
+    }
 }

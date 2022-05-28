@@ -1,3 +1,10 @@
+# Кейс Росрыболовства
+
+Для запуска проекта требуется Docker
+https://www.docker.com/get-started/
+
+##Команды для разворачивания:
+
 ### Build docker images
 
 ```

@@ -25,6 +25,7 @@ class AppAsset extends AssetBundle
     public $js = [
         'https://cdn.amcharts.com/lib/5/index.js',
         'https://cdn.amcharts.com/lib/5/percent.js',
+        'https://cdn.amcharts.com/lib/5/xy.js',
         'https://cdn.amcharts.com/lib/5/themes/Animated.js',
     ];
     public $depends = [
