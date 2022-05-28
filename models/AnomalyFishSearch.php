@@ -18,9 +18,6 @@ class AnomalyFishSearch extends AnomalyFish
     /** @var string[] */
     public $fish_names;
 
-    /** @var array */
-    protected $chartData = [];
-
     /**
      * {@inheritdoc}
      */
@@ -84,12 +81,6 @@ class AnomalyFishSearch extends AnomalyFish
             $query->andWhere(['<=', 'date', date('Y-m-d', strtotime($this->date_end))]);
         }
 
-        $chartQuery = clone $query;
-        $this->chartData = $chartQuery->select(['cluster_nr AS category', 'ROUND(AVG(mean_error)) AS value'])
-            ->groupBy('cluster_nr')
-            ->asArray()
-            ->all();
-
         return $dataProvider;
     }
 
@@ -127,17 +118,5 @@ class AnomalyFishSearch extends AnomalyFish
     public function getChartData()
     {
         return $this->chartData;
-    }
-
-    public function getChartFishTopDiff()
-    {
-        return AnomalyFish::find()
-            ->select([
-                'round(avg(diff_db1_db2)) as value',
-                'fish_name as category',
-            ])
-            ->groupBy('fish_name')
-            ->asArray()
-            ->all();
     }
 }
