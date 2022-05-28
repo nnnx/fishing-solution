@@ -19,7 +19,7 @@ services:
       context: Dockerfiles/nginx
     image: yii2-demo-nginx:latest
     ports:
-      - '80:80'
+      - '8888:80'
     volumes:
       - ./:/app
     links:

@@ -32,7 +32,7 @@ $ docker-compose exec app php yii migrate --interactive=0
 ### Access to web
 
 ```
-http://localhost:80/
+http://localhost:8888/
 ```
 
 ### Импорт результатов
