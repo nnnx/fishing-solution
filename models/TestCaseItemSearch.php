@@ -19,7 +19,7 @@ class TestCaseItemSearch extends TestCaseItem
     {
         return [
             [['id', 'score'], 'integer'],
-            [['date', 'region', 'fish', 'regime'], 'safe'],
+            [['date', 'region', 'fish', 'regime', 'date_start', 'date_end'], 'safe'],
             [['volume'], 'number'],
             ['date_end', 'dateRangeValidate'],
         ];
