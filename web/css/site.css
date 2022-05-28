@@ -40,10 +40,6 @@ a.desc:after {
     border-bottom-width: 0;
 }
 
-.grid-view th {
-    white-space: nowrap;
-}
-
 .hint-block {
     display: block;
     margin-top: 5px;

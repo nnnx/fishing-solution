@@ -1,12 +1,11 @@
 <?php
 
 /**
- * @var $model \app\models\TestCaseItemSearch
+ * @var $model \app\models\AnomalyFishSearch
  */
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use yii\helpers\Url;
 use kartik\select2\Select2;
 use kartik\date\DatePicker;
 
@@ -19,7 +18,7 @@ use kartik\date\DatePicker;
 
 <div class="row">
     <div class="col-md-3">
-        <?= $form->field($model, 'date_start')->widget(DatePicker::classname(), [
+        <?= $form->field($model, 'date_start')->widget(DatePicker::class, [
             'type' => DatePicker::TYPE_INPUT,
             'pluginOptions' => [
                 'autoclose' => true,
@@ -28,7 +27,7 @@ use kartik\date\DatePicker;
         ]); ?>
     </div>
     <div class="col-md-3">
-        <?= $form->field($model, 'date_end')->widget(DatePicker::classname(), [
+        <?= $form->field($model, 'date_end')->widget(DatePicker::class, [
             'type' => DatePicker::TYPE_INPUT,
             'pluginOptions' => [
                 'autoclose' => true,
@@ -39,20 +38,25 @@ use kartik\date\DatePicker;
 </div>
 
 <div class="row">
-    <div class="col-md-6">
-        <?= $form->field($model, 'region') ?>
+    <div class="col-md-3">
+        <?= $form->field($model, 'db1') ?>
     </div>
-    <div class="col-md-6">
-        <?= $form->field($model, 'regime') ?>
+    <div class="col-md-3">
+        <?= $form->field($model, 'db2') ?>
+    </div>
+    <div class="col-md-3">
+        <?= $form->field($model, 'cluster_nr')->dropDownList($model->getClusteSelect(), [
+            'prompt' => 'Все',
+        ]) ?>
     </div>
 </div>
 
-<?= $form->field($model, 'fish')->widget(Select2::classname(), [
+<?= $form->field($model, 'fish_names')->widget(Select2::class, [
     'data' => $model->getFishSelect(),
     'theme' => Select2::THEME_BOOTSTRAP,
     'showToggleAll' => false,
     'options' => [
-        'placeholder' => '',
+        'placeholder' => 'Все',
         'multiple' => true,
     ],
 ]); ?>

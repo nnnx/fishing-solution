@@ -2,15 +2,11 @@
 
 /**
  * @var yii\web\View $this
- * @var app\models\TestCase2ItemSearch $searchModel
+ * @var app\models\AnomalyFishSearch $searchModel
  * @var yii\data\ActiveDataProvider $dataProvider
  */
 
-use yii\helpers\Html;
-use yii\helpers\Url;
-use yii\grid\ActionColumn;
 use yii\grid\GridView;
-use yii\bootstrap4\LinkPager;
 
 $this->title = 'Результаты аномалий: ' . $searchModel::caseName();
 ?>
@@ -21,7 +17,7 @@ $this->title = 'Результаты аномалий: ' . $searchModel::caseNam
 
 <br/>
 
-<?= $this->render('_case2_search', ['model' => $searchModel]) ?>
+<?= $this->render('_catch_search', ['model' => $searchModel]) ?>
 
 <?= GridView::widget([
     'dataProvider' => $dataProvider,

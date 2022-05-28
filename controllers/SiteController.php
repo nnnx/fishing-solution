@@ -2,9 +2,9 @@
 
 namespace app\controllers;
 
-use app\models\TestCase2ItemSearch;
-use app\models\TestCase3ItemSearch;
-use app\models\TestCaseItemSearch;
+use app\models\AnomalyCatchSearch;
+use app\models\AnomalyFishSearch;
+use app\models\AnomalyOwnerSearch;
 use Yii;
 use yii\web\Controller;
 use yii\web\Response;
@@ -13,7 +13,6 @@ use app\models\ContactForm;
 
 class SiteController extends Controller
 {
-
     /**
      * {@inheritdoc}
      */
@@ -28,32 +27,29 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $searchModel = new TestCaseItemSearch();
+        $searchModel = new AnomalyFishSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
-
-        return $this->render('index', [
+        return $this->render('anomaly/fish', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
 
-    public function actionCase2()
+    public function actionOwner()
     {
-        $searchModel = new TestCase2ItemSearch();
+        $searchModel = new AnomalyOwnerSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
-
-        return $this->render('case2', [
+        return $this->render('anomaly/owner', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
 
-    public function actionCase3()
+    public function actionCatch()
     {
-        $searchModel = new TestCase3ItemSearch();
+        $searchModel = new AnomalyCatchSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
-
-        return $this->render('case3', [
+        return $this->render('anomaly/catch', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);

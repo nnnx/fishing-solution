@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @var $model \app\models\TestCase2ItemSearch
+ * @var $model \app\models\AnomalyOwnerSearch
  */
 
 use yii\helpers\Html;
@@ -17,7 +17,7 @@ use kartik\date\DatePicker;
 
 <div class="row">
     <div class="col-md-3">
-        <?= $form->field($model, 'date')->widget(DatePicker::classname(), [
+        <?= $form->field($model, 'date_start')->widget(DatePicker::class, [
             'type' => DatePicker::TYPE_INPUT,
             'pluginOptions' => [
                 'autoclose' => true,
@@ -25,17 +25,28 @@ use kartik\date\DatePicker;
             ]
         ]); ?>
     </div>
-    <div class="col-md-9">
-        <?= $form->field($model, 'region') ?>
+    <div class="col-md-3">
+        <?= $form->field($model, 'date_end')->widget(DatePicker::class, [
+            'type' => DatePicker::TYPE_INPUT,
+            'pluginOptions' => [
+                'autoclose' => true,
+                'format' => 'dd.mm.yyyy'
+            ]
+        ]); ?>
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-3">
-        <?= $form->field($model, 'ves_id') ?>
+        <?= $form->field($model, 'db1') ?>
     </div>
     <div class="col-md-3">
-        <?= $form->field($model, 'volume') ?>
+        <?= $form->field($model, 'db2') ?>
+    </div>
+    <div class="col-md-3">
+        <?= $form->field($model, 'cluster_nr')->dropDownList($model->getClusteSelect(), [
+            'prompt' => 'Все',
+        ]) ?>
     </div>
 </div>
 

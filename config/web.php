@@ -52,6 +52,9 @@ $config = [
             'rules' => [
             ],
         ],
+        'formatter' => [
+            'dateFormat' => 'dd.MM.yyyy',
+        ],
     ],
     'container' => [
         'definitions' => [

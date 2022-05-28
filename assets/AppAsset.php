@@ -23,6 +23,9 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
+        'https://cdn.amcharts.com/lib/5/index.js',
+        'https://cdn.amcharts.com/lib/5/percent.js',
+        'https://cdn.amcharts.com/lib/5/themes/Animated.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
