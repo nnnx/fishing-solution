@@ -2,10 +2,13 @@
 
 /**
  * @var yii\web\View $this
- * @var app\models\TestCaseItemSearch $searchModel
+ * @var app\models\TestCase2ItemSearch $searchModel
  * @var yii\data\ActiveDataProvider $dataProvider
  */
 
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\bootstrap4\LinkPager;
 
@@ -18,7 +21,7 @@ $this->title = 'Результаты аномалий: ' . $searchModel::caseNam
 
 <br/>
 
-<?= $this->render('_case_search', ['model' => $searchModel]) ?>
+<?= $this->render('_case2_search', ['model' => $searchModel]) ?>
 
 <?= GridView::widget([
     'dataProvider' => $dataProvider,

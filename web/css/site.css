@@ -86,3 +86,12 @@ a.desc:after {
 .form-group.has-error .help-block {
     color: #dc3545;
 }
+
+.select2-selection{
+    overflow-y:auto;
+    white-space:nowrap;
+}
+
+ul.select2-selection__rendered{
+    white-space: nowrap;
+}

@@ -5,6 +5,7 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
+    'name' => 'Кейс Росрыболовства',
     'language' => 'ru',
     'timeZone' => 'Europe/Moscow',
     'basePath' => dirname(__DIR__),
@@ -50,6 +51,11 @@ $config = [
             'showScriptName' => false,
             'rules' => [
             ],
+        ],
+    ],
+    'container' => [
+        'definitions' => [
+            \yii\widgets\LinkPager::class => \yii\bootstrap4\LinkPager::class,
         ],
     ],
     'params' => $params,

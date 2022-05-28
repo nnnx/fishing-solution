@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @var $model \app\models\form\ImportCsv
+ * @var $model \app\models\form\ImportDb
  */
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-$this->title = 'Импорт';
+$this->title = 'Импорт файлов';
 ?>
 
 <h1><?= $this->title ?></h1>
@@ -18,16 +18,7 @@ $this->title = 'Импорт';
     ],
 ]); ?>
 
-<div class="row">
-    <div class="col-md-6">
-        <?= $form->field($model, 'modelClass')->dropDownList($model::getTables(), [
-            'prompt' => '',
-        ]) ?>
-    </div>
-</div>
-
-
-<?= $form->field($model, 'file')->fileInput() ?>
+<?= $form->field($model, 'file')->fileInput()->label(false) ?>
 
 <?= Html::submitButton('Загрузить', ['class' => 'btn btn-primary']) ?>
 

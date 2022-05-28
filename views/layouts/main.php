@@ -35,9 +35,9 @@ AppAsset::register($this);
         ],
     ]);
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav'],
+        'options' => ['class' => 'navbar-nav ml-auto'],
         'items' => [
-            ['label' => 'Импорт таблиц', 'url' => ['/import']],
+            ['label' => 'Импорт файлов', 'url' => ['/import/db']],
         ],
     ]);
     NavBar::end();
