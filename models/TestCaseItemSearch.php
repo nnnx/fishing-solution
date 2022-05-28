@@ -70,9 +70,10 @@ class TestCaseItemSearch extends TestCaseItem
             'score' => $this->score,
         ]);
 
+
         $query->andFilterWhere(['ilike', 'region', $this->region])
-            ->andFilterWhere(['ilike', 'fish', $this->fish])
-            ->andFilterWhere(['ilike', 'regime', $this->regime]);
+            ->andFilterWhere(['ilike', 'regime', $this->regime])
+            ->andFilterWhere(['fish' => $this->fish]);
 
         if ($this->date_start) {
             $query->andWhere(['>=', 'date', date('Y-m-d', strtotime($this->date_start))]);
