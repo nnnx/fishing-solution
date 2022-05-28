@@ -12,50 +12,50 @@ class m220527_132102_init_tables extends Migration
      */
     public function safeUp()
     {
-        $this->createTable('ref_fish', [
+        $this->createTable('fish', [
             'id' => $this->primaryKey(),
             'name' => $this->string(255)->notNull()->comment('Название'),
         ]);
 
-        $this->createTable('ref_product_designate', [
+        $this->createTable('product_designate', [
             'id' => $this->primaryKey(),
             'name' => $this->string(255)->notNull()->comment('Название'),
         ]);
 
-        $this->createTable('ref_product_type', [
+        $this->createTable('product_type', [
             'id' => $this->primaryKey(),
             'name' => $this->string(255)->notNull()->comment('Название'),
             'fish_id' => $this->integer()->comment('Рыба'),
             'name_full' => $this->string(255)->comment('Полное название'),
         ]);
 
-        $this->addForeignKey('fk_ref_product_type__fish_id', 'ref_product_type', 'fish_id', 'ref_fish', 'id', 'CASCADE');
+        $this->addForeignKey('fk_product_type__fish_id', 'product_type', 'fish_id', 'fish', 'id', 'CASCADE');
 
-        $this->createTable('ref_regime', [
+        $this->createTable('regime', [
             'id' => $this->primaryKey(),
             'name' => $this->string(255)->notNull()->comment('Название'),
         ]);
 
-        $this->createTable('ref_region', [
+        $this->createTable('region', [
             'id' => $this->primaryKey(),
             'name' => $this->string(255)->notNull()->comment('Название'),
         ]);
 
-        $this->createTable('catch', [
+        $this->createTable('fish_catch', [
             'id' => $this->primaryKey(),
             'id_ves' => $this->integer(255)->notNull()->comment('Id судна'),
             'date' => $this->date()->notNull()->comment('Дата'),
             'region_id' => $this->integer()->notNull()->comment('Регион'),
             'fish_id' => $this->integer()->notNull()->comment('Рыба'),
-            'catch_volume_id' => $this->float(3)->defaultValue(0)->comment('Объем улова'),
+            'catch_volume' => $this->float(3)->defaultValue(0)->comment('Объем улова'),
             'regime_id' => $this->integer()->notNull()->comment('Вид ловли'),
             'permit' => $this->integer()->notNull()->comment('Разрешение'),
             'company_id' => $this->integer()->notNull()->comment('Компания'),
         ]);
 
-        $this->addForeignKey('fk_catch__region_id', 'catch', 'region_id', 'ref_region', 'id', 'CASCADE');
-        $this->addForeignKey('fk_catch__fish_id', 'catch', 'fish_id', 'ref_fish', 'id', 'CASCADE');
-        $this->addForeignKey('fk_catch__regime_id', 'catch', 'regime_id', 'ref_regime', 'id', 'CASCADE');
+        $this->addForeignKey('fk_fish_catch__region_id', 'fish_catch', 'region_id', 'region', 'id', 'CASCADE');
+        $this->addForeignKey('fk_fish_catch__fish_id', 'fish_catch', 'fish_id', 'fish', 'id', 'CASCADE');
+        $this->addForeignKey('fk_fish_catch__regime_id', 'fish_catch', 'regime_id', 'regime', 'id', 'CASCADE');
 
         $this->createTable('product', [
             'id' => $this->primaryKey(),
@@ -64,11 +64,11 @@ class m220527_132102_init_tables extends Migration
             'designate_id' => $this->integer()->notNull()->comment('Назначение'),
             'type_id' => $this->integer()->notNull()->comment('Тип'),
             'prod_volume' => $this->float(3)->defaultValue(0)->comment('Объем'),
-            'prod_board_volume' => $this->float(3)->defaultValue(0)->comment('Объем платы'),
+            'prod_board_volume' => $this->float(3)->defaultValue(0)->comment('Итоговый объем на борту'),
         ]);
 
-        $this->addForeignKey('fk_product__designate_id', 'product', 'designate_id', 'ref_product_designate', 'id', 'CASCADE');
-        $this->addForeignKey('fk_product__type_id', 'product', 'type_id', 'ref_product_type', 'id', 'CASCADE');
+        $this->addForeignKey('fk_product__designate_id', 'product', 'designate_id', 'product_designate', 'id', 'CASCADE');
+        $this->addForeignKey('fk_product__type_id', 'product', 'type_id', 'product_type', 'id', 'CASCADE');
     }
 
     /**

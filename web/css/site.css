@@ -82,3 +82,7 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+.form-group.has-error .help-block {
+    color: #dc3545;
+}
