@@ -44,5 +44,5 @@ services:
       - '5555:5000'
     volumes:
       - ./:/app
-  depends_on:
-    - app
+    depends_on:
+      - app
