@@ -3,7 +3,7 @@
 Для запуска проекта требуется Docker
 https://www.docker.com/get-started/
 
-##Команды для разворачивания:
+## Команды для разворачивания:
 
 ### Build docker images
 
@@ -33,10 +33,4 @@ $ docker-compose exec app php yii migrate --interactive=0
 
 ```
 http://localhost:8888/
-```
-
-### Импорт результатов
-
-```
-docker-compose exec app php yii task/import-results
 ```
