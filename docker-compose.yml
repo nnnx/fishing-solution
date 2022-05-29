@@ -40,5 +40,9 @@ services:
     build:
       context: Dockerfiles/python
     image: python-demo:latest
-    depends_on:
-      - postgresql
+    ports:
+      - '5555:5000'
+    volumes:
+      - ./:/app
+  depends_on:
+    - app
