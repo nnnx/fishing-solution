@@ -1,36 +1,31 @@
 # Кейс Росрыболовства
 
-Для запуска проекта требуется Docker
-https://www.docker.com/get-started/
+## Общее описание решения
+
+Проект является цифровым решением в рамках конкурса Цифровой Прорыв. Сезон: искусственный Интеллект, соответствующиим задаче "Ловцы аномалий в базах вылова и переработки рыбопродуктов" (https://hacks-ai.ru/hackathons/755853)
+
+> На основе представленных данных с применением технологий искусственного интеллекта создать прототип системы поиска,
+классификации и визуализация аномалий в информации между базами вылова и переработки рыбопродуктов внутри РФ.
+
+## Требования к окружению для запуска продукта
+Платформа: кроссплатформенное решение
+
+Требуемое ПО: Docker (https://www.docker.com/get-started/)
 
 ## Команды для разворачивания:
-
-### Build docker images
-
 ```
-$ docker-compose build
-```
-
-### Run containers
-
-```
-$ docker-compose up -d
+docker-compose build
+docker-compose up -d
+docker-compose exec app composer install
+docker-compose exec app php yii migrate --interactive=0
 ```
 
-### Install Composer dependencies
-
-```
-$ docker-compose exec app composer install
-```
-
-### Apply DB migrations
-
-```
-$ docker-compose exec app php yii migrate --interactive=0
-```
-
-### Access to web
-
+## Доступ к интерфейсу WebUI
 ```
 http://localhost:8888/
 ```
+
+## Примеры использования
+- Загрузить zip архив с папками "db1" и "db2"
+- Кликнуть "поиск аномалий"
+- Использовать фильтры и сортировки для просмотра результирующих таблиц
