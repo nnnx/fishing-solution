@@ -33,11 +33,11 @@ abstract class AnomalyBase extends \yii\db\ActiveRecord
         if (!$this->importFilename) {
             throw new Exception('Не указано имя файла');
         }
-        $path = Yii::getAlias('@app/results/' . $this->importFilename);
+        $path = Yii::getAlias('@app/python/results/' . $this->importFilename);
         if (!file_exists($path)) {
             throw new Exception('Файл не найден: ' . $path);
         }
-        Yii::$app->db->createCommand()->truncateTable(self::tableName());
+        Yii::$app->db->createCommand()->truncateTable(self::tableName())->execute();
         $handle = fopen($path, "r");
         $columns = fgetcsv($handle, 0, ',');
         $data = [];

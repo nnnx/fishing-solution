@@ -38,6 +38,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav ml-auto'],
         'items' => [
             ['label' => 'Импорт файлов', 'url' => ['/import/db']],
+            ['label' => 'Найти аномалии', 'url' => ['/site/calc']],
         ],
     ]);
     NavBar::end();

@@ -18,6 +18,10 @@ $this->title = 'Импорт файлов';
     ],
 ]); ?>
 
+<p>
+    Файл должен содержать папки "db1", "db2", вместе или по-отдельности.
+</p>
+
 <?= $form->field($model, 'file')->fileInput()->label(false) ?>
 
 <?= Html::submitButton('Загрузить', ['class' => 'btn btn-primary']) ?>
